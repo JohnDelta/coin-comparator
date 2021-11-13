@@ -4,17 +4,26 @@ body {
 
 .app-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  width: 100vw;
 }
 
 .menu-container {
   display: grid;
   background-color: #333;
   grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
   gap: 30px;
   padding: 30px;
   border-radius: 20px;
+}
+
+.fetch-button {
+  grid-column: 1/3;
+  grid-row: 2/3;
 }
 
 .control-container {
@@ -24,7 +33,6 @@ body {
   grid-template-columns: auto auto;
   grid-template-rows: auto auto;
   gap: 20px;
-  padding: 20px;
   border-radius: 10px;
   align-items: flex-start;
 }
@@ -60,7 +68,6 @@ body {
   grid-template-columns: auto;
   grid-template-rows: auto auto auto;
   gap: 20px;
-  padding: 20px;
   border-radius: 10px;
 }
 
@@ -82,14 +89,14 @@ body {
   grid-row: 2/3;
   grid-column: 1/2;
   background-color: #222;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   align-items: flex-start;
-  gap: 10px;
-  padding: 10px;
   border-radius: 5px;
   min-height: 35px;
+  width: 300px;
+  padding: 5px;
 }
 
 .menu-container .coin {
@@ -98,7 +105,8 @@ body {
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 1.2px;
-  padding: 5px;
+  padding: 8px;
+  margin: 5px;
   border-radius: 5px;
   pointer-events: none;
 }
@@ -117,4 +125,61 @@ button, input {
 
 button {
   cursor: pointer;
+}
+
+.coinsTable-container {
+  margin-top: 20px;
+}
+
+.coinsTable-container .table {
+  background-color: #333;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.coinsTable-container .table .header, .coinsTable-container .table .row {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: auto;
+  align-items: flex-start;
+}
+
+.coinsTable-container .table .header {
+  background-color: #fff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.coinsTable-container .table .header .cell {
+  font-weight: 500 !important;
+  color: #000 !important;
+  pointer-events: none;
+}
+
+.coinsTable-container .table .row {
+  
+}
+
+.coinsTable-container .table .row:nth-child(odd) {
+  background-color: #444;
+}
+
+.coinsTable-container .table .row:last-child {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.coinsTable-container .table .row .cell {
+  
+}
+
+.coinsTable-container .table .cell {
+  letter-spacing: 1.2px;
+  padding: 10px 10px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
 }
