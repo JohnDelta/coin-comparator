@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/coin-comparator/static/css/main.1c25c9e3.chunk.css",
+    "main.js": "/coin-comparator/static/js/main.a3428d37.chunk.js",
+    "main.js.map": "/coin-comparator/static/js/main.a3428d37.chunk.js.map",
+    "runtime-main.js": "/coin-comparator/static/js/runtime-main.0b73aebf.js",
+    "runtime-main.js.map": "/coin-comparator/static/js/runtime-main.0b73aebf.js.map",
+    "static/js/2.d49dadb4.chunk.js": "/coin-comparator/static/js/2.d49dadb4.chunk.js",
+    "static/js/2.d49dadb4.chunk.js.map": "/coin-comparator/static/js/2.d49dadb4.chunk.js.map",
+    "index.html": "/coin-comparator/index.html",
+    "static/css/main.1c25c9e3.chunk.css.map": "/coin-comparator/static/css/main.1c25c9e3.chunk.css.map",
+    "static/js/2.d49dadb4.chunk.js.LICENSE.txt": "/coin-comparator/static/js/2.d49dadb4.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0b73aebf.js",
+    "static/js/2.d49dadb4.chunk.js",
+    "static/css/main.1c25c9e3.chunk.css",
+    "static/js/main.a3428d37.chunk.js"
+  ]
+}
