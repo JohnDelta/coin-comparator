@@ -7,8 +7,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   width: 100vw;
+  padding: 30px 0;
 }
 
 .menu-container {
@@ -71,6 +71,15 @@ body {
   align-items: flex-start;
 }
 
+@media only screen and (max-width: 900px) {
+  .menu-container {
+    grid-template-rows: auto auto auto auto;
+  }
+  .control-container {
+    grid-column: 1/3;
+  }
+}
+
 .control-container > .title {
   grid-row: 1/2;
   grid-column: 1/3;
@@ -108,6 +117,16 @@ body {
 .coins-container > .clear-button {
   grid-row: 3/4;
   grid-column: 1/2;
+}
+
+@media only screen and (max-width: 900px) {
+  .coins-container {
+    grid-column: 1/3;
+    grid-row: 3/4;
+  }
+  .fetch-button {
+    grid-row: 4/5;
+  }
 }
 
 .coins-container > .title {
@@ -163,6 +182,8 @@ button {
 
 .coinsTable-container {
   margin-top: 20px;
+  display: grid;
+  justify-content: center;
 }
 
 .coinsTable-container .table {
@@ -172,6 +193,13 @@ button {
   grid-template-rows: auto;
   border-radius: 15px;
   padding: 20px;
+  width: min-content;
+}
+
+.coinsTable-container .table button {
+  justify-self: flex-start;
+  margin-bottom: 20px;
+  padding: 0 15px;
 }
 
 .coinsTable-container .table .header, .coinsTable-container .table .row {
@@ -216,4 +244,5 @@ button {
   color: #fff;
   font-size: 14px;
   font-weight: 400;
+  min-width: max-content;
 }

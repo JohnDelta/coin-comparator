@@ -89,6 +89,8 @@ const Menu = ({setData}) => {
 
 const CoinsTable = ({response}) => {
 
+  const [hideChangeRates, setHideChangeRates] = useState(true);
+
   // 1st. only average between the previous percent changes
 
   const CalculateComparator = (
@@ -184,47 +186,58 @@ const CoinsTable = ({response}) => {
 
   if (response === null || response.length === 0) return [];
 
+  let hidableHeaderColumns = hideChangeRates ? [] : [
+    <div className='cell'>3 Months</div>,
+    <div className='cell'>2 Months</div>,
+    <div className='cell'>1 Month</div>,
+    <div className='cell'>7 Days</div>,
+    <div className='cell'>24 Hours</div>,
+    <div className='cell'>1 Hour</div>,
+  ];
+
+  const getHidableColumns = (coin) => {
+    return hideChangeRates ? [] : [
+      <div className='cell'>
+        <p>{coin.percentChange90d}</p>
+        {/* <p>{coin.previous90dPrice}</p> */}
+      </div>,
+      <div className='cell'>
+        <p>{coin.percentChange60d}</p>
+        {/* <p>{coin.previous60dPrice}</p> */}
+      </div>,
+      <div className='cell'>
+        <p>{coin.percentChange30d}</p>
+        {/* <p>{coin.previous30dPrice}</p> */}
+      </div>,
+      <div className='cell'>
+        <p>{coin.percentChange7d}</p>
+        {/* <p>{coin.previous7hPrice}</p> */}
+      </div>,
+      <div className='cell'>
+        <p>{coin.percentChange24h}</p>
+        {/* <p>{coin.previous24hPrice}</p> */}
+      </div>,
+      <div className='cell'>
+        <p>{coin.percentChange1h}</p>
+        {/* <p>{coin.previous1hPrice}</p> */}
+      </div>
+    ];
+  }
+
   return (
     <div className='coinsTable-container'>
       <div className='table'>
+        <button onClick={() => setHideChangeRates(!hideChangeRates)} >{hideChangeRates ? 'Show' : 'Hide'} change rates</button>
         <div className='header'>
           <div className='cell'>Coin</div>
-          <div className='cell'>3 Months</div>
-          <div className='cell'>2 Months</div>
-          <div className='cell'>1 Month</div>
-          <div className='cell'>7 Days</div>
-          <div className='cell'>24 Hours</div>
-          <div className='cell'>1 Hour</div>
+          {hidableHeaderColumns}
           <div className='cell'>Current Price</div>
           <div className='cell'>Comparator</div>
         </div>
         {GetCoinsMapped(response).map((coin, index) => (
           <div className='row' key={'coinRow'+index}>
-            <div className='cell'>{coin.symbol}</div>
-            <div className='cell'>
-              <p>{coin.percentChange90d}</p>
-              <p>{coin.previous90dPrice}</p>
-            </div>
-            <div className='cell'>
-              <p>{coin.percentChange60d}</p>
-              <p>{coin.previous60dPrice}</p>
-            </div>
-            <div className='cell'>
-              <p>{coin.percentChange30d}</p>
-              <p>{coin.previous30dPrice}</p>
-            </div>
-            <div className='cell'>
-              <p>{coin.percentChange7d}</p>
-              <p>{coin.previous7hPrice}</p>
-            </div>
-            <div className='cell'>
-              <p>{coin.percentChange24h}</p>
-              <p>{coin.previous24hPrice}</p>
-            </div>
-            <div className='cell'>
-              <p>{coin.percentChange1h}</p>
-              <p>{coin.previous1hPrice}</p>
-            </div>
+            <div className='cell'>{'#' + (index + 1) + ' ' + coin.symbol}</div>
+            {getHidableColumns(coin)}
             <div className='cell'>
               <p>{coin.price}</p>
             </div>
