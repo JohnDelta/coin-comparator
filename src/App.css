@@ -15,20 +15,54 @@ body {
   display: grid;
   background-color: #333;
   grid-template-columns: auto auto;
-  grid-template-rows: auto auto;
+  grid-template-rows: auto auto auto;
   gap: 30px;
   padding: 30px;
   border-radius: 20px;
 }
 
+.key-container {
+  grid-column: 1/3;
+  grid-row: 1/2;
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 20px;
+}
+
+.key-container > .title {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  color: #fff;
+  font-weight: 500;
+  font-size: 15px;
+  pointer-events: none;
+}
+
+.key-container > .title > a {
+  text-decoration: underline;
+  font-weight: 600;
+  color: #fff !important;
+  font-size: 15px;
+  pointer-events: none;
+  margin-right: 5px;
+  letter-spacing: 1.2px;
+  cursor: pointer !important;
+  pointer-events: all !important;
+}
+
+.key-container > input {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+
 .fetch-button {
   grid-column: 1/3;
-  grid-row: 2/3;
+  grid-row: 3/4;
 }
 
 .control-container {
   grid-column: 1/2;
-  grid-row: 1/2;
+  grid-row: 2/3;
   display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: auto auto;
@@ -62,7 +96,7 @@ body {
 }
 
 .coins-container {
-  grid-row: 1/2;
+  grid-row: 2/3;
   grid-column: 2/3;
   display: grid;
   grid-template-columns: auto;

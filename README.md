@@ -15,6 +15,13 @@ The coins are sorted by their comparator values.
 - npm install -g serve
 - serve -s build
 
+## Deploy to gh
+
+- npm install gh-pages --save-dev
+- Add to package.json
+  - At the top level `"homepage": "http://nameOfGHOwner.github.io/coin-comparator"`
+  - In the scripts `"predeploy": "npm run build",` and `"deploy": "gh-pages -d build"`
+
 ## CORS Issues
 
 - If you face any issues with CORS [check](https://stackoverflow.com/a/54390080/14434647)

@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import dataExample from './TestData';
 
 const EUR_ID = '2790';
 
 const Menu = ({setData}) => {
 
-  const CORS_ANYWHERE = 'https://cors-anywhere.herokuapp.com/';
-
-  const API_KEY = 'ba3fe6b2-0646-49d7-9957-80552fa22f9e';
-
   const API_URI = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?';
+
+  const [apiKey, setApiKey] = useState('');
 
   const [coins, setCoins] = useState([]);
   
@@ -24,6 +21,12 @@ const Menu = ({setData}) => {
     e.preventDefault();
     let coin = e.target.value;
     setInputCoin(coin);
+  };
+
+  const OnInputApiKeyChange = (e) => {
+    e.preventDefault();
+    let apiKey = e.target.value;
+    setApiKey(apiKey);
   };
   
   const AddCoin = () => {
@@ -41,10 +44,10 @@ const Menu = ({setData}) => {
   }
 
   const FetchData = async () => {
-    if (coins.length === 0) return;
+    if (coins.length === 0 || apiKey === '') return;
     let uri = API_URI + 'convert_id=' + EUR_ID + '&symbol=' + coins.join(','); 
     var myHeaders = new Headers();
-    myHeaders.append("X-CMC_PRO_API_KEY", "ba3fe6b2-0646-49d7-9957-80552fa22f9e");
+    myHeaders.append("X-CMC_PRO_API_KEY", apiKey);
     var requestOptions = {
       method: 'GET',
       headers: myHeaders,
@@ -58,6 +61,10 @@ const Menu = ({setData}) => {
 
   return (
     <div className='menu-container' key={coins.join("_")}>
+      <div className='key-container'>
+        <p className='title'><a href='https://pro.coinmarketcap.com/login' target='_blank' rel='noreferrer'>CoinMarketCap</a>API Key</p>
+        <input type='text' onChange={(e) => {OnInputApiKeyChange(e)}} />
+      </div>
       <div className='control-container'>
         <p className='title'>Input Coin</p>
         <input type='text' placeholder='ETH' onChange={(e) => {OnInputCoinChange(e)}} />
@@ -99,7 +106,8 @@ const CoinsTable = ({response}) => {
         let percentChange30dWeight = 0.8;
         let percentChange60dWeight = 0.6;
         let percentChange90dWeight = 0.4;
-        let priceWeight = 1 * price;
+        
+        //let priceWeight = 1 * price;
 
         let sum = percentChange1h * percentChange1hWeight + 
           percentChange24h * percentChange24hWeight + 
