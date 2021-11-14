@@ -228,14 +228,14 @@ const CoinsTable = ({response}) => {
     <div className='coinsTable-container'>
       <div className='table'>
         <button onClick={() => setHideChangeRates(!hideChangeRates)} >{hideChangeRates ? 'Show' : 'Hide'} change rates</button>
-        <div className='header'>
+        <div className={'header' + (hideChangeRates ? ' hideChangeRates' : '')}>
           <div className='cell'>Coin</div>
           {hidableHeaderColumns}
           <div className='cell'>Current Price</div>
           <div className='cell'>Comparator</div>
         </div>
         {GetCoinsMapped(response).map((coin, index) => (
-          <div className='row' key={'coinRow'+index}>
+          <div className={'row' + (hideChangeRates ? ' hideChangeRates' : '')} key={'coinRow'+index}>
             <div className='cell'>{'#' + (index + 1) + ' ' + coin.symbol}</div>
             {getHidableColumns(coin)}
             <div className='cell'>

@@ -148,7 +148,7 @@ body {
   align-items: flex-start;
   border-radius: 5px;
   min-height: 35px;
-  width: 300px;
+  width: 100%;
   padding: 5px;
 }
 
@@ -193,7 +193,6 @@ button {
   grid-template-rows: auto;
   border-radius: 15px;
   padding: 20px;
-  width: min-content;
 }
 
 .coinsTable-container .table button {
@@ -207,6 +206,10 @@ button {
   grid-template-columns: repeat(9, 1fr);
   grid-template-rows: auto;
   align-items: flex-start;
+}
+
+.coinsTable-container .table .hideChangeRates {
+  grid-template-columns: repeat(3, 1fr) !important;
 }
 
 .coinsTable-container .table .header {
@@ -244,5 +247,4 @@ button {
   color: #fff;
   font-size: 14px;
   font-weight: 400;
-  min-width: max-content;
 }
