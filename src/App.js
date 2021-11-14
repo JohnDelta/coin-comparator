@@ -63,7 +63,7 @@ const Menu = ({setData}) => {
     <div className='menu-container' key={coins.join("_")}>
       <div className='key-container'>
         <p className='title'><a href='https://pro.coinmarketcap.com/login' target='_blank' rel='noreferrer'>CoinMarketCap</a>API Key</p>
-        <input type='text' onChange={(e) => {OnInputApiKeyChange(e)}} />
+        <input type='text' onChange={(e) => {OnInputApiKeyChange(e)}} defaultValue={apiKey} />
       </div>
       <div className='control-container'>
         <p className='title'>Input Coin</p>
