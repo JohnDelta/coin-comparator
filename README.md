@@ -11,7 +11,9 @@ The coins are sorted by their comparator values.
 - git clone repo
 - npm install
 - npm install react-router-dom
-- npm run
+- npm run build
+- npm install -g serve
+- serve -s build
 
 ## CORS Issues
 
